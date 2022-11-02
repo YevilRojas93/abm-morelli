@@ -1,0 +1,77 @@
+#section-login  input::placeholder{
+	color: #333333 !important;
+}
+
+#section-login button {
+	background-color: #00A8FF !important  ;
+	color: white!important;
+	font-size: 22px !important;
+
+}
+#section-login {
+
+	border-color: #00A8FF !important;
+}
+#section-login h1 {
+	text-transform: uppercase;
+	background-color:#00A8FF ;
+	color: white ;
+}
+
+#section-form-registrar  {
+
+	border: 5px #198754 solid;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+#section-form-registrar h1 {
+	text-transform: uppercase;
+	background-color: #198754 ;
+	color: white !important;
+
+}
+
+#section-form-registrar hr {
+	height: 4px;
+}
+
+#section-cargar-cobros input::placeholder{
+	color: black !important;
+}
+
+#section-cargar-cobros h1 {
+	color: white;
+	text-transform: uppercase;
+}
+
+#section-cargar-cobros {
+	border-color: 
+
+}
+
+#section-cargar-cobros button {
+	text-transform: uppercase;
+}
+
+.bg-abm-1 {
+	background-color: #B5B5B5;
+}
+
+#section-listado table {
+
+	border-color: #198754  !important;
+}
+
+#section-listado h1 {
+	color: white;
+	text-transform: uppercase;
+}
+#section-registro input::placeholder,#section-registro select{
+	color: #333333;
+}
+#section-registro h1 {
+	text-transform: uppercase;
+	background-color:#198754 ;
+	color: white ;
+}
