@@ -5,10 +5,10 @@
 		public static function conectar()
 		{
 			/*LOCALHOST*/
-			$dbname = "abm_morelli";
-			$userdb = "root";
-			$passdb = "";
-			$ip = "localhost";
+			$dbname = "yevilrojas_db";
+			$userdb = "287668";
+			$passdb = "asd123ASD@";
+			$ip = "mysql-yevilrojas.alwaysdata.net";
 
 			$link = new PDO ("mysql:host=".$ip.";dbname=".$dbname."",$userdb,$passdb);
 			$link->exec("SET CHARACTER SET utf8");
