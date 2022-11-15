@@ -16,7 +16,7 @@
 		$sql->bindParam(":password",$_POST["password1"],PDO::PARAM_STR);
 		$sql->bindParam(":tipo",$_POST["tipo"],PDO::PARAM_STR);
 		if ($sql->execute()) {
-			header("location:/login");
+			header("location:/listadousuarios/success");
 		}
 		else{
 			header("location:/registro/error");
