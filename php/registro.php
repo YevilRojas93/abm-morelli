@@ -5,6 +5,7 @@
 		if ($_POST["password1"] != $_POST['password2']) {
 			header("location:/registro/error_password");
 		}
+
 		session_start();
 		//CONEXION PDO
 		//A la DB : Conseguime un usuario que tenga el email y la password que ingreso en el formulario.

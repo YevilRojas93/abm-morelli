@@ -1,14 +1,17 @@
-		<section class="container border border-4 border-success  px-0 rounded-3 bg-light " id="section-cargar-cobros">
+		<?php if ($_SESSION['tipo'] == "administrador"){
+			header("location:/resumendia");
+		}?>
+		<section class="container border border-4 border-success  px-0 rounded-3 bg-light  pt-3" id="section-cargar-cobros">
 			<h1 class="bg-success text-center px-0">cargar cobros</h1>
 			<form class="px-5 pt-2" method="post" action="php/cargarcobros.php">
-				
 			  	<div class="row justify-content-center">
 				  	<div class="mb-3 col-lg-6">
 						<select name="idAgencia" class="form-control bg-abm-1">
 							<option value="">Seleccionar agencia</option>
 							<?php 
 								require_once("php/conexion.php"); 
-								$sql = Conexion::conectar()->prepare("SELECT * FROM agencias");
+								$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE idUsuario = :idUsuario");
+								$sql->bindParam(":idUsuario",$_SESSION['idUsuario'],PDO::PARAM_INT);
 								$sql->execute();
 								$lista_agencia = $sql->fetchAll();
 								foreach ($lista_agencia as $key => $value) {

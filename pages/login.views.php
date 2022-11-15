@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<base href='https://abm-morelli.herokuapp.com/'>
+	<base href='http://morelli.local.com/'>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ABM MORELLI</title>
@@ -34,9 +34,6 @@
 			<button type="submit" class="btn w-50 py-1" >Entrar</button>
 		</div>
 	</div>
-	<div class="text-center">
-		<a href="registro" class="link-success fs-5">¿No tienes cuenta?</a>
- 	</div>
 	</form>
 	</section>
 	

@@ -9,7 +9,7 @@ class templateController
 	}
 	public function getPage()
 	{
-		$array = ["home","login","registraragencia","registro","cargarcobros","listadoagencia","listadocobros","editaragencia","editarcobro","resumendia","cobrospendientes","logout","primera_vez","pdf"];
+		$array = ["home","login","registraragencia","registro","cargarcobros","listadoagencia","listadocobros","listadousuarios","editaragencia","editarcobro","resumendia","cobrospendientes","logout","primera_vez","pdf","editarusuario","borrarusuario","borraragencia","borrarcobro"];
 		if (!isset($_GET["action"])) {
 			$page = "pages/home.views.php";
 		}

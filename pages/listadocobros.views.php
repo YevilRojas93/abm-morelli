@@ -1,4 +1,4 @@
-<section id="section-listado">
+<section id="section-listado" class="container-fluid px-5 pt-3">
 		<h1 class="bg-success text-center px-0 mb-0">Listado de Agencia</h1>
 			<table class="table border border-4 ">
 		  <thead>
@@ -18,6 +18,9 @@
 				$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia");
 				$sql->execute();
 				$lista_cobros = $sql->fetchAll();
+				if (count($lista_cobros) == 0) {
+					echo "<tr> <td colspan='6' class='text-center fw-bold'>NINGUN Resultado</td> </tr>";
+				}
 				foreach ($lista_cobros as $key => $value):
 					?>
 					<tr>
@@ -26,8 +29,15 @@
 				      <td><?= $value["agencia"]; ?></td>
 				      <td><?= $value["tipo_pago"]; ?></td>
 				      <td><?= $value["fecha_cobro"]; ?></td>
-				      <td><?= $value["status"]; ?></td>
-				      <td><a class="btn btn-warning" href="editarcobro/<?= $value['idCobro']; ?>">editar</a></td>
+				      <?php if ($value["status"] == "pendiente"): ?>
+				      	<td class="text-warning fw-bold"><?= $value["status"]; ?></td>
+				      <?php elseif($value["status"] == "pagado"): ?>	
+				      	<td class="text-success fw-bold"><?= $value["status"]; ?></td>
+				      <?php endif ?>
+				      <td>
+				      	<a class="btn btn-warning" href="editarcobro/<?= $value['idCobro']; ?>">editar</a>
+				      	<a class="btn btn-danger" href="borrarcobro/<?= $value['idCobro']; ?>">borrar</a>
+				  	  </td>
 				    </tr>
 			<?php endforeach; ?>
 		  </tbody>

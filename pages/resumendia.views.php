@@ -13,10 +13,11 @@
 		  <tbody>
 		  	<?php require_once("php/conexion.php"); 
 		  	$dia_actual = date("Y-m-d");
+		  	$agencia = "AND agencias.idUsuario = ".$_SESSION['idUsuario'];
 		  	?>
 					<tr class="fw-bold fs-5">
 						<?php 
-							$sql = Conexion::conectar()->prepare("SELECT sum(monto) as monto FROM cobros WHERE fecha_cobro = :dia_actual ");
+							$sql = Conexion::conectar()->prepare("SELECT sum(monto) as monto FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia  WHERE cobros.fecha_cobro = :dia_actual $agencia");
 							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
 							$sql->execute();
 							$efectivo = $sql->fetch();
@@ -25,7 +26,7 @@
 				      	<?= $efectivo["monto"] ?? 0; ?>
 				      </td>
 				      <?php 
-							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros WHERE fecha_cobro = :dia_actual ");
+							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.fecha_cobro = :dia_actual $agencia");
 							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
 							$sql->execute();
 							$efectivo = $sql->fetch();
@@ -35,7 +36,7 @@
 				      </td>
 
 				      <?php 
-							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros WHERE fecha_cobro = :dia_actual AND tipo_pago = 'transferencia'");
+							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.fecha_cobro = :dia_actual AND tipo_pago = 'transferencia' $agencia");
 							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
 							$sql->execute();
 							$transferencia = $sql->fetch();
@@ -44,7 +45,7 @@
 				      	<?= $transferencia["cantidad"] ?? 0; ?>
 				      </td>
 				      <?php 
-							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros WHERE fecha_cobro = $dia_actual AND tipo_pago = 'cheque'");
+							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.fecha_cobro = $dia_actual AND tipo_pago = 'cheque' $agencia");
 							$sql->execute();
 							$cheque = $sql->fetch();
 						 ?>
@@ -52,7 +53,7 @@
 				      	<?= $cheque["cantidad"] ?? 0; ?>
 				      </td>
 				      <?php 
-							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros WHERE fecha_cobro = $dia_actual AND tipo_pago = 'efectivo'");
+							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.fecha_cobro = $dia_actual AND tipo_pago = 'efectivo' $agencia");
 							$sql->execute();
 							$efectivo = $sql->fetch();
 						 ?>

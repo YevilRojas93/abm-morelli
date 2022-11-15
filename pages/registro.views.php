@@ -1,5 +1,8 @@
+<?php if ($_SESSION["tipo"] == "agenciero"){
+	header("location:/resumendia");
+} ?>
 <section class="container border border-success border-4 rounded-3 mt-4 px-0" id="section-registro">
-	<h1 class="d-flex justify-content-center">Registro</h1>
+	<h1 class="d-flex justify-content-center">CREAR USUARIO</h1>
 		<form method="post" action="php/registro.php" class="px-5">
 	  	<div class="my-4">
 	  	    <div class="col-lg-12">

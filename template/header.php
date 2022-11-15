@@ -1,4 +1,4 @@
-
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,30 +36,56 @@
       </li>
       <li class="nav-item me-2">
       	<div class="dropdown">
-		  <button class="btn btn-success fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-		    COBROS
-		  </button>
-		  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-		    <li><a class="dropdown-item" href="cargarcobros">CARGAR COBROS</a></li>
-		    <li><a class="dropdown-item" href="listadocobros">LISTADO COBROS</a></li>
-		  </ul>
-		</div>
+				  <button class="btn btn-success fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				    COBROS
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				  	<?php if ($_SESSION["tipo"] == "agenciero"){
+				     echo '<li><a class="dropdown-item" href="cargarcobros">CARGAR COBROS</a></li>';
+				    }
+				    ?>
+				    
+				    <li><a class="dropdown-item" href="listadocobros">LISTADO COBROS</a></li>
+				 	</ul>
+				</div>
+      </li>
+      <li class="nav-item me-2">
+        <div class="dropdown">
+				  <button class="btn btn-warning text-light fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				    REPORTES
+				  </button>
+				  <ul class="dropdown-menu w-100" style="min-width: 18rem;" aria-labelledby="dropdownMenuButton1">
+				    <li><a class="dropdown-item" href="resumendia">VER RESUMEN DE COBROS DEL DIA</a></li>
+				    <li><a class="dropdown-item" href="cobrospendientes">VER COBROS PENDIENTES</a></li>
+				  </ul>
+				</div>
       </li>
       <li class="nav-item">
         <div class="dropdown">
-		  <button class="btn btn-warning text-light fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-		    REPORTES
-		  </button>
-		  <ul class="dropdown-menu w-100" style="min-width: 18rem;" aria-labelledby="dropdownMenuButton1">
-		    <li><a class="dropdown-item" href="resumendia">VER RESUMEN DE COBROS DEL DIA</a></li>
-		    <li><a class="dropdown-item" href="cobrospendientes">VER COBROS PENDIENTES</a></li>
-		    
-		  </ul>
-		</div>
+				  <button class="btn btn-primary text-light fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				    USUARIOS
+				  </button>
+				  <ul class="dropdown-menu w-100" style="min-width: 18rem;" aria-labelledby="dropdownMenuButton1">
+				    <li><a class="dropdown-item" href="listadousuarios">VER LISTADO</a></li>
+				    <?php if ($_SESSION["tipo"] == "administrador"){
+				     echo '<li><a class="dropdown-item" href="registro">CREAR USUARIOS</a></li>';
+				    }
+				    ?>
+				  </ul>
+				</div>
       </li>
     </ul>
     <div>
-    	<a href="logout" class="btn btn-danger">Cerrar sesion</a>
+    		<div class="btn-group">
+				  <button class="btn btn-success fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				    <?= $_SESSION["nombre_completo"]  ?><i class="fas fa-chevron-down"></i>
+				  </button>
+				  <ul class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+				    <li><a href="editarusuario/<?= $_SESSION["idUsuario"] ?>" class="dropdown-item  text-primary fw-bold">Editar</a></li>
+				    <li><a href="logout" class="dropdown-item text-danger fw-bold">Cerrar sesion</a></li>
+				 	</ul>
+				</div>
+    	
     </div>
   </div>
 </nav>
