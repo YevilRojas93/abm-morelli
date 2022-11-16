@@ -1,4 +1,4 @@
-	<section id="section-listado" class="container pt-3">
+	<section id="section-listado" class="container">
 		<h1 class="bg-success text-center px-0 mb-0">COBROS DEL DIA</h1>
 			<table class="table border border-4 ">
 			  <thead>

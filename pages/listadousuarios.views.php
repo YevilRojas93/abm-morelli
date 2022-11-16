@@ -9,7 +9,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
 		});
 	</script>
 <?php endif; ?>
-<section id="section-listado" class="container-fluid px-5 pt-3">
+<section id="section-listado" class="container-fluid px-5">
 		<h1 class="bg-primary text-center px-0 mb-0">Listado de usuarios</h1>
 		<table class="table border border-4 border-primary">
 		  <thead>

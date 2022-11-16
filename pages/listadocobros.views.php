@@ -1,4 +1,4 @@
-<section id="section-listado" class="container-fluid px-5 pt-3">
+<section id="section-listado" class="container-fluid px-5">
 		<h1 class="bg-success text-center px-0 mb-0">Listado de Agencia</h1>
 			<table class="table border border-4 ">
 		  <thead>

@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!-- A grey horizontal navbar that becomes vertical on small screens -->
-<nav class="navbar navbar-expand-sm border-bottom border-2 border-secondary" style="background-color: #D0D0D0;">
+<nav class="navbar navbar-expand-sm border-bottom border-2 border-secondary pb-4" style="background-color: #D0D0D0;">
   <div class="container-fluid">
     <!-- Links -->
     <ul class="navbar-nav">

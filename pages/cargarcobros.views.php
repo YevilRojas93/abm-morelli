@@ -1,7 +1,7 @@
 		<?php if ($_SESSION['tipo'] == "administrador"){
 			header("location:/resumendia");
 		}?>
-		<section class="container border border-4 border-success  px-0 rounded-3 bg-light  pt-3" id="section-cargar-cobros">
+		<section class="container border border-4 border-success  px-0 rounded-3 bg-light" id="section-cargar-cobros">
 			<h1 class="bg-success text-center px-0">cargar cobros</h1>
 			<form class="px-5 pt-2" method="post" action="php/cargarcobros.php">
 			  	<div class="row justify-content-center">
