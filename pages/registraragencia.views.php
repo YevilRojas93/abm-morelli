@@ -1,5 +1,5 @@
 <?php 
-	$error = explode("_",$_GET["status"]);
+	$error = explode("_",$_GET["id"]);
 ?>
 	<section class="container px-0 pt-0 pb-3" id="section-form-registrar">
 		<h1 class="text-center text-success pb-2"  >Agregar Agencia</h1>

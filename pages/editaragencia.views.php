@@ -1,5 +1,5 @@
 <?php 
-	$error = explode("_",$_GET["id"]);
+	$error = explode("_",$_GET["status"]);
 ?>
 <section class="container px-0 pt-0 pb-3" id="section-form-registrar">
 		<?php 
