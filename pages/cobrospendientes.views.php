@@ -16,7 +16,7 @@
 					require_once("php/conexion.php"); 
 			  		$dia_actual = date("Y-m-d");
 			  		$agencia = "";
-			  		if ($_SESSION["tipo"] = "agenciero") {
+			  		if ($_SESSION["tipo"] == "agenciero") {
 			  			$agencia = "AND a.idUsuario = ".$_SESSION['idUsuario'];
 			  		}
 
