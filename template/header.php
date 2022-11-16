@@ -60,20 +60,19 @@
 				  </ul>
 				</div>
       </li>
-      <li class="nav-item">
-        <div class="dropdown">
-				  <button class="btn btn-primary text-light fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-				    USUARIOS
-				  </button>
-				  <ul class="dropdown-menu w-100" style="min-width: 18rem;" aria-labelledby="dropdownMenuButton1">
-				    <li><a class="dropdown-item" href="listadousuarios">VER LISTADO</a></li>
-				    <?php if ($_SESSION["tipo"] == "administrador"){
-				     echo '<li><a class="dropdown-item" href="registro">CREAR USUARIOS</a></li>';
-				    }
-				    ?>
-				  </ul>
-				</div>
-      </li>
+      <?php if ($_SESSION["tipo"] == "administrador"):?>
+	      <li class="nav-item">
+	        <div class="dropdown">
+					  <button class="btn btn-primary text-light fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					    USUARIOS
+					  </button>
+					  <ul class="dropdown-menu w-100" style="min-width: 18rem;" aria-labelledby="dropdownMenuButton1">
+					    <li><a class="dropdown-item" href="listadousuarios">VER LISTADO</a></li>
+					    <li><a class="dropdown-item" href="registro">CREAR USUARIOS</a></li>
+					  </ul>
+					</div>
+	      </li>
+    	<?php endif; ?>
     </ul>
     <div>
     		<div class="btn-group">

@@ -6,6 +6,9 @@
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql->execute();
 		$usuario = $sql->fetch();
+		$error = explode("_",$_GET["status"]);
+	}else{
+		header("location:/resumendia");
 	}
  ?>
 <section class="container border border-primary border-4 rounded-3 mt-4 px-0" id="section-registro">
@@ -13,17 +16,37 @@
 		<form method="post" action="php/editarusuario.php" class="px-5">
 			<input type="hidden" name="idUsuario" value="<?= $_GET['id'] ?>">
 		  	<div class="my-4 row">
-		  	    <div class="col-lg-6">
+		  	    <div class="col-lg-12">
 			    	<input type="email" name="email" class="form-control bg-abm-1"  placeholder="Email" value="<?= $usuario['email'] ?>">
+			    	<?php 
+			    	if (in_array("email", $error)) {
+			    		echo "<p class='text-danger'>Debe enviar un email mayor a 5 caracteres.</p>";
+			    	}
+			    	?>
 			 	</div>
 				<div class="col-lg-6">
 				    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo" value="<?= $usuario['nombre_completo'] ?>">
+				    <?php 
+				    	if (in_array("nombre", $error)) {
+				    		echo "<p class='text-danger'>Debe enviar un nombre mayor a 4 caracteres.</p>";
+				    	}
+				    ?>
 				</div>
 			</div>
 
 			<div class="mb-4 row">
 				<div class="col-lg-6">	
 				    <input type="password" name="password1" class="form-control bg-abm-1" placeholder="Contraseña">
+				    <?php 
+				    	if (in_array("password", $error)) {
+				    		echo "<p class='text-danger'>Debe enviar una contraseña mayor a 4 caracteres.</p>";
+				    	}
+				    ?>
+				    <?php 
+				    	if (in_array("pass2", $error)) {
+				    		echo "<p class='text-danger'>Ambas contraseñas deben ser iguales.</p>";
+				    	}
+				    ?>
 				</div>
 
 				<div class="col-lg-6">
@@ -43,47 +66,12 @@
 					    </select>
 					</div>  
 		 		<?php endif ?>
-				<div class="col-lg-6">
-					<select name="idAgencia" class="form-control  bg-abm-1">
-				    	<option value="">Seleccionar agencia</option>
-				    	<?php 
-				    		$sql = Conexion::conectar()->prepare("SELECT * FROM agencias");
-							$sql->execute();
-							$agencias = $sql->fetchAll();
-				    	?>
-				    	<?php foreach ($agencias as $key => $value): ?>
-				    		<option value="<?= $value['idAgencia'] ?>" <?php if($usuario['idAgencia'] == $value['idAgencia']) echo "selected" ?>><?= ucwords($value['nombre_agencia']) ?></option>
-				    	<?php endforeach ?>
-				    </select>
-				</div>
 			 	<div class="col-6 mt-4">
 				  <button type="submit" class="btn btn-primary w-100">Enviar</button>
 				 </div>
 		 	</div>
 		</form>
 	</section>
-	<?php 
-	//Si existe la variable id y id es == error
-	if (isset($_GET["id"]) AND $_GET['id'] == "error"):?>
-		<script>
-			Swal.fire({
-			  icon: 'error',
-			  title: 'Error login',
-			  text: 'Los datos ingresados son erroneos.',
-			  footer: '<a href="/login">¿Ya tienes cuenta?</a>'
-			});
-		</script>
-	<?php endif; ?>
-
-	<?php if (isset($_GET["id"]) AND $_GET['id'] == "error_password"):?>
-		<script>
-			Swal.fire({
-			  icon: 'error',
-			  title: 'Error login',
-			  text: 'Las contraseñas no coinciden.'
-			});
-		</script>
-	<?php endif; ?>
 
 </body>
 </html>

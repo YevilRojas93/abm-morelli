@@ -1,3 +1,14 @@
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success_edit',
+		  title: 'Modificacion exitoso!',
+		  text: 'Los datos fueron actualizados.',
+		});
+	</script>
+<?php endif; ?>
 <section id="section-listado" class="container-fluid px-5 pt-3">
 		<h1 class="bg-primary text-center px-0 mb-0">Listado de usuarios</h1>
 		<table class="table border border-4 border-primary">
