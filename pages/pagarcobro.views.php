@@ -1,5 +1,5 @@
 <?php 
-if (isset($_GET["id"]) AND $_GET["id"] > 0 AND $_SESSION['tipo'] == "agenciero") {
+if (isset($_GET["id"]) AND $_GET["id"] > 0 AND $_SESSION['tipo'] == "administrador") {
 	require_once("php/conexion.php");
 	$sql = Conexion::conectar()->prepare("UPDATE cobros SET status = 'pagado' WHERE idCobro = :idCobro");
 	$sql->bindParam(":idCobro",$_GET["id"],PDO::PARAM_INT);
