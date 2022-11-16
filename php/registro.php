@@ -3,7 +3,7 @@
 	if (isset($_POST)) {
 		//var_dump($_POST);
 		$error = "";
-		if ($_POST["password1"] < 4) {
+		if (strlen($_POST["password1"]) < 4) {
 			$error .= "_password";
 		}
 		if ($_POST["password1"] != $_POST['password2']) {
