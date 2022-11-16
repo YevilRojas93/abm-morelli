@@ -1,23 +1,72 @@
 <?php 
 //Si existe la variable id y id es == error
-if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
+if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_usuario"):?>
 	<script>
 		Swal.fire({
-		  icon: 'success',
-		  title: 'Modificacion exitoso!',
-		  text: 'Los datos fueron actualizados.',
+		  icon: 'error',
+		  title: 'Usuario editado',
+		  text: 'Usuario modificado correctamente!.',
 		});
 	</script>
 <?php endif; ?>
 
 <?php 
 //Si existe la variable id y id es == error
-if (isset($_GET["id"]) AND $_GET['id'] == "success"):?>
+if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_agencia"):?>
+	<script>
+		Swal.fire({
+		  icon: 'error',
+		  title: 'Agencia editado',
+		  text: 'Agencia modificada correctamente!.',
+		});
+	</script>
+<?php endif; ?>
+
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_cobro"):?>
+	<script>
+		Swal.fire({
+		  icon: 'error',
+		  title: 'Cobro editado',
+		  text: 'Cobro modificado correctamente!.',
+		});
+	</script>
+<?php endif; ?>
+
+
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_usuario"):?>
 	<script>
 		Swal.fire({
 		  icon: 'success',
-		  title: 'Creacion exitoso!',
-		  text: 'Datos creados.',
+		  title: 'Creacion de usuario!',
+		  text: 'Usuario ingresado exitosamente!.',
+		});
+	</script>
+<?php endif; ?>
+
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_agencia"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Creacion de agencia',
+		  text: 'Agencia ingresada exitosamente!.',
+		});
+	</script>
+<?php endif; ?>
+
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Creacion de cobros',
+		  text: 'Cobro ingresado exitosamente!.',
 		});
 	</script>
 <?php endif; ?>
