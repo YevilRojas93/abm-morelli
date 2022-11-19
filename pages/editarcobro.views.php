@@ -84,7 +84,7 @@
 						checked = false;
 					}
 					if (checked == true) {
-						event.submit();
+						document.querySelector("#editarcobro").submit();
 					}
 				}
 			});
