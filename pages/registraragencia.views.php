@@ -29,7 +29,7 @@
 				    ?>
 				</div>
 				<div class="mb-3 col-lg-3">
-					<select name="idUsuario" class="form-control">
+					<select name="idUsuario" id="idUsuario" class="form-control">
 						<option value="-1">Seleccionar Agenciero</option>
 						<?php
 							require_once("php/conexion.php");
