@@ -61,7 +61,7 @@
 					}
 					let monto = document.querySelector("#monto");
 					let regex = /([0-9])+/;
-					if (regex.test(monto.value) ==  false && monto.value < 1) {
+					if (regex.test(monto.value) ==  false || monto.value < 1) {
 						monto.nextElementSibling.classList.add("active")
 						checked = false;
 					}
@@ -71,7 +71,7 @@
 						checked = false;
 					}
 					if (checked == true) {
-						event.submit();
+						document.querySelector("#cargarcobros").submit();
 					}
 				}
 			});

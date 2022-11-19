@@ -93,7 +93,7 @@
 				checked = false;
 			}
 			if (checked == true) {
-				event.submit();
+				document.querySelector("#registraragencia").submit();
 			}
 		}
 
