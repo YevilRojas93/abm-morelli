@@ -1,7 +1,7 @@
-.error-validation{
+.error-message{
 	display: none;
 }
-.error-validation.active{
+.error-message.active{
 	display: block;
 }
 #section-login  input::placeholder{

@@ -19,7 +19,7 @@
 								}
 							?>
 						</select>
-						<p class="text-danger error-validation">Debes seleccionar una agencia.</p>
+						<p class="text-danger error-message">Debes seleccionar una agencia.</p>
 					</div>
 					<div class="mb-3 col-lg-6">
 						<select name="tipo_pago" id="tipo_pago" class="form-select w-100 bg-abm-1">
@@ -28,7 +28,7 @@
 						    <option value="efectivo">Efectivo</option>
 						    <option value="cheque">Cheque </option>
 					  	</select>
-						<p class="text-danger error-validation">Debes seleccionar un medio de pago.</p>
+						<p class="text-danger error-message">Debes seleccionar un medio de pago.</p>
 
 					</div>
 				</div>
@@ -38,7 +38,7 @@
 					</div>
 					<div class="mb-3 col-lg-6">
 					  <input type="number" name="monto" class="form-control bg-abm-1" id="monto" placeholder="Monto a pagar">
-					  <p class="text-danger error-validation">El monto debe ser mayor a 0 y numerico.</p>
+					  <p class="text-danger error-message">El monto debe ser mayor a 0 y numerico.</p>
 					</div>
 				</div>
 				 <div class="row justify-content-center">

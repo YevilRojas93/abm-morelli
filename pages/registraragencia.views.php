@@ -41,7 +41,7 @@
 							}
 						?>
 					</select>
-					<p class="text-danger error-validation">Debes seleccionar un agenciero.</p>
+					<p class="text-danger error-message">Debes seleccionar un agenciero.</p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
