@@ -7,12 +7,11 @@
 				$sql->execute();
 				$cobro = $sql->fetch();
 			 ?>
-			<form class="px-5 pt-2" method="post" action="php/cargarcobros.php">
-
+			<form class="px-5 pt-2" id="editarcobro" method="post" action="php/cargarcobros.php">
 			  	<div class="row justify-content-center">
 			  		<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Agencia</label>
-						<select name="idAgencia" class="form-control bg-abm-1">
+						<select name="idAgencia" id="idAgencia" class="form-control bg-abm-1">
 							<option value="">Seleccionar agencia</option>
 							<?php 
 								require_once("php/conexion.php"); 
@@ -29,25 +28,29 @@
 								}
 							?>
 						</select>
+						<p class="text-danger">Debes seleccionar una agencia.</p>
+
 					</div>
 					<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Medio de pago</label>
-						<select name="tipo_pago" class="form-select w-100 bg-abm-1">
+						<select name="tipo_pago" id="tipo_pago" class="form-select w-100 bg-abm-1">
 						    <option>Selecionar medio de pago</option>
 						    <option value="transferencia" <?php if($cobro["tipo_pago"] == "transferencia"){ echo "selected";} ?>>Transferencia</option>
 						    <option value="efectivo" <?php if($cobro["tipo_pago"] == "efectivo"){ echo "selected";} ?>>Efectivo</option>
 						    <option value="cheque" <?php if($cobro["tipo_pago"] == "cheque"){ echo "selected";} ?>>Cheque </option>
 					  	</select>
+						<p class="text-danger">Debes seleccionar un medio de pago.</p>
 					</div>
 				</div>
 			 	<div class="row justify-content-center">
 					<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Fecha de cobro</label>
-					    <input type="date" name="fecha_cobro" value="<?= $cobro["fecha_cobro"]?>" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
+					    <input type="date" id="fecha_cobro" name="fecha_cobro" value="<?= $cobro["fecha_cobro"]?>" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
 					</div>
 					<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Monto</label>
-					  	<input type="number" name="monto" value="<?= $cobro["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
+					  	<input type="number" id="monto" name="monto" value="<?= $cobro["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
+					  	<p class="text-danger">El monto debe ser mayor a 0 y numerico.</p>
 					</div>
 				</div>
 				 <div class="row justify-content-center">
@@ -58,6 +61,28 @@
 				<input type="hidden" name="edit" value="true">
 				<input type="hidden" name="old_id" value="<?= $_GET["id"] ?>">
 			</form>
+			<script>
+			let checked = false;
+			document.querySelector("#editarcobro").addEventListener("submit",function(event){
+				if (checked == false) {
+					event.preventDefault();
+					checked = true;
+					let idAgencia = document.querySelector("#idAgencia");
+					if(idAgencia.value == -1){
+						idAgencia.nextElementSibling.style.display = "block";
+					}
+					let monto = document.querySelector("#monto");
+					let regex = /([0-9])+/;
+					if (regex.test(monto.value) ==  false && monto.value <= 0) {
+						monto.nextElementSibling.style.display = "block";
+					}
+					let tipo_pago = document.querySelector("#tipo_pago");
+					if(tipo_pago.value == -1){
+						tipo_pago.nextElementSibling.style.display = "block";
+					}
+				}
+			});
+		</script>
 		</section>
 	</body>
 </html>
