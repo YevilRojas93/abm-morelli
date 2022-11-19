@@ -24,14 +24,7 @@
 			    	}
 			    	?>
 			 	</div>
-				<div class="col-lg-6">
-				    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo" value="<?= $usuario['nombre_completo'] ?>">
-				    <?php 
-				    	if (in_array("nombre", $error)) {
-				    		echo "<p class='text-danger'>Debe enviar un nombre mayor a 4 caracteres.</p>";
-				    	}
-				    ?>
-				</div>
+				
 			</div>
 
 			<div class="mb-4 row">
@@ -65,6 +58,14 @@
 					    	<option value="agenciero"  <?php if($usuario['tipo'] == "agenciero") echo "selected" ?>>Agenciero</option>
 					    </select>
 					</div>  
+					<div class="col-lg-6">
+				    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo" value="<?= $usuario['nombre_completo'] ?>">
+				    <?php 
+				    	if (in_array("nombre", $error)) {
+				    		echo "<p class='text-danger'>Debe enviar un nombre mayor a 4 caracteres.</p>";
+				    	}
+				    ?>
+				</div>
 		 		<?php endif ?>
 			 	<div class="col-6 mt-4">
 				  <button type="submit" class="btn btn-primary w-100">Enviar</button>
