@@ -13,7 +13,7 @@
  ?>
 <section class="container border border-primary border-4 rounded-3 mt-4 px-0" id="section-registro">
 	<h1 class="d-flex justify-content-center bg-primary">EDITAR USUARIO</h1>
-		<form method="post" action="php/editarusuario.php" class="px-5">
+		<form method="post" id="editarusuario" action="php/editarusuario.php" class="px-5">
 			<input type="hidden" name="idUsuario" value="<?= $_GET['id'] ?>">
 		  	<div class="my-4 row">
 		  	    <div class="col-lg-12">
@@ -51,12 +51,13 @@
 		 	<div class="mb-2 row justify-content-center">
 		 		<?php if ($_SESSION['tipo'] == "administrador"): ?>
 					<div class="col-lg-6">	
-					    <select name="tipo" class="form-control bg-abm-1">
-					    	<option value="">Seleccionar tipo usuario</option>
+					    <select name="tipo" id="tio" class="form-control bg-abm-1">
+					    	<option value="-1">Seleccionar tipo usuario</option>
 					    	<?php var_dump($usuario["tipo"]) ?>
 					    	<option value="administrador" <?php if($usuario['tipo'] == "administrador") echo "selected" ?>>Administrador</option>
 					    	<option value="agenciero"  <?php if($usuario['tipo'] == "agenciero") echo "selected" ?>>Agenciero</option>
 					    </select>
+					    <p class="text-danger error-message">Debe seleccionar un tipo de usuario</p>
 					</div>  
 					<div class="col-lg-6">
 				    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo" value="<?= $usuario['nombre_completo'] ?>">
@@ -73,6 +74,24 @@
 		 	</div>
 		</form>
 	</section>
+	<script>
+		let checked = false;
+		document.querySelector("#editarusuario").addEventListener("submit",function(event){
+			if (checked == false) {
+				event.preventDefault();
+				checked = true;
+				let tipo = document.querySelector("#tipo");
+				if(tipo.value == -1){
+					tipo.nextElementSibling.classList.add("active");
+					checked = false;
+				}
+				if (checked == true) {
+					document.querySelector("#editarusuario").submit();
+				}
+			}
+
+		});
+	</script>
 
 </body>
 </html>

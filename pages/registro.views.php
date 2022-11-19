@@ -6,7 +6,7 @@
  ?>
 <section class="container border border-success border-4 rounded-3 mt-4 px-0" id="section-registro">
 	<h1 class="d-flex justify-content-center">CREAR USUARIO</h1>
-		<form method="post" action="php/registro.php" class="px-5">
+		<form method="post" id="registro" action="php/registro.php" class="px-5">
 	  	<div class="my-4">
 	  	    <div class="col-lg-12">
 		    	<input type="email" name="email" class="form-control bg-abm-1"  placeholder="Email">
@@ -50,7 +50,7 @@
 			    ?>
 			</div>
 			<div class="col-lg-6">	
-			    <select name="tipo" class="form-control bg-abm-1">
+			    <select name="tipo" id="tio" class="form-control bg-abm-1">
 			    	<option value="">Seleccionar tipo usuario</option>
 			    	<option value="administrador">Administrador</option>
 			    	<option value="agenciero">Agenciero</option>
@@ -76,6 +76,23 @@
 			});
 		</script>
 	<?php endif; ?>
+	<script>
+		let checked = false;
+		document.querySelector("#registro").addEventListener("submit",function(event){
+			if (checked == false) {
+				event.preventDefault();
+				checked = true;
+				let tipo = document.querySelector("#tipo");
+				if(tipo.value == -1){
+					tipo.nextElementSibling.classList.add("active");
+					checked = false;
+				}
+				if (checked == true) {
+					document.querySelector("#registro").submit();
+				}
+			}
 
+		});
+	</script>
 </body>
 </html>
