@@ -1,3 +1,9 @@
+.error-validation{
+	display: none;
+}
+.error-validation.active{
+	display: block;
+}
 #section-login  input::placeholder{
 	color: #333333 !important;
 }
