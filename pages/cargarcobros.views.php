@@ -57,15 +57,18 @@
 					let idAgencia = document.querySelector("#idAgencia");
 					if(idAgencia.value == -1){
 						idAgencia.nextElementSibling.classList.add("active")
+						checked = false;
 					}
 					let monto = document.querySelector("#monto");
 					let regex = /([0-9])+/;
-					if (regex.test(monto.value) ==  false && monto.value <= 0) {
+					if (regex.test(monto.value) ==  false && monto.value < 1) {
 						monto.nextElementSibling.classList.add("active")
+						checked = false;
 					}
 					let tipo_pago = document.querySelector("#tipo_pago");
 					if(tipo_pago.value == -1){
 						tipo_pago.nextElementSibling.classList.add("active")
+						checked = false;
 					}
 					if (checked == true) {
 						event.submit();

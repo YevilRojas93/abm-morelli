@@ -90,6 +90,7 @@
 			let idUsuario = document.querySelector("#idUsuario");
 			if(idUsuario.value == -1){
 				idUsuario.nextElementSibling.classList.add("active");
+				checked = false;
 			}
 			if (checked == true) {
 				event.submit();
