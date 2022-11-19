@@ -41,7 +41,7 @@
 							}
 						?>
 					</select>
-					<p class="text-danger">Debes seleccionar un agenciero.</p>
+					<p class="text-danger error-validation">Debes seleccionar un agenciero.</p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -89,7 +89,7 @@
 			checked = true;
 			let idUsuario = document.querySelector("#idUsuario");
 			if(idUsuario.value == -1){
-				idUsuario.nextElementSibling.style.display = "block";
+				idUsuario.nextElementSibling.classList.add("active");
 			}
 			if (checked == true) {
 				event.submit();
