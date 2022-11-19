@@ -2,7 +2,7 @@
 			<h1 class="bg-success text-center px-0">editar cobros</h1>
 			<?php 
 				require_once("php/conexion.php"); 
-				$sql = Conexion::conectar()->prepare("SELECT * FROM cobros WHERE idCobro =:idCobro");
+				$sql = Conexion::conectar()->prepare("SELECT * FROM cobros WHERE idCobro = :idCobro");
 				$sql->bindParam(":idCobro",$_GET['id'],PDO::PARAM_INT);
 				$sql->execute();
 				$cobro = $sql->fetch();
@@ -40,10 +40,10 @@
 				</div>
 			 	<div class="row justify-content-center">
 					<div class="mb-3 col-lg-6">
-					    <input type="date" name="fecha_cobro" value="<?= $value["fecha_cobro"]?>" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
+					    <input type="date" name="fecha_cobro" value="<?= $cobro["fecha_cobro"]?>" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
 					</div>
 					<div class="mb-3 col-lg-6">
-					  <input type="number" name="monto" value="<?= $value["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
+					  <input type="number" name="monto" value="<?= $cobro["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
 					</div>
 				</div>
 				 <div class="row justify-content-center">
