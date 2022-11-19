@@ -11,6 +11,7 @@
 
 			  	<div class="row justify-content-center">
 			  		<div class="mb-3 col-lg-6 d-flex align-items-center">
+						<label for="">Agencia</label>
 						<select name="idAgencia" class="form-control bg-abm-1">
 							<option value="">Seleccionar agencia</option>
 							<?php 
@@ -30,6 +31,7 @@
 						</select>
 					</div>
 					<div class="mb-3 col-lg-6">
+						<label for="">Medio de pago</label>
 						<select name="tipo_pago" class="form-select w-100 bg-abm-1">
 						    <option>Selecionar medio de pago</option>
 						    <option value="transferencia" <?php if($cobro["tipo_pago"] == "transferencia"){ echo "selected";} ?>>Transferencia</option>
@@ -40,10 +42,12 @@
 				</div>
 			 	<div class="row justify-content-center">
 					<div class="mb-3 col-lg-6">
+						<label for="">Fecha de cobro</label>
 					    <input type="date" name="fecha_cobro" value="<?= $cobro["fecha_cobro"]?>" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
 					</div>
 					<div class="mb-3 col-lg-6">
-					  <input type="number" name="monto" value="<?= $cobro["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
+						<label for="">Monto</label>
+					  	<input type="number" name="monto" value="<?= $cobro["monto"] ?>" class="form-control bg-abm-1" placeholder="Monto a pagar">
 					</div>
 				</div>
 				 <div class="row justify-content-center">
