@@ -43,7 +43,7 @@
 		<script>
 			  Swal.fire({
 			  icon: 'error',
-			  title: 'Error registro',
+			  title: 'Error Login',
 			  text: 'Contraseña o email incorrectos.',
 			  footer: '<a href="/registro">¿No tienes cuenta?</a>'
 			})
