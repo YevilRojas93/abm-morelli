@@ -50,7 +50,7 @@
 					<input type="text" name="direccion" class="form-control" placeholder="Direccion">
 					<?php 
 				    	if (in_array("direccion", $error)) {
-				    		echo "<p class='text-danger'>Debe enviar un localidad mayor a 2 caracteres.</p>";
+				    		echo "<p class='text-danger'>La direccion debe ser en el siguiente formato ej:'calle 123'.</p>";
 				    	}
 				    ?>
 				</div>
