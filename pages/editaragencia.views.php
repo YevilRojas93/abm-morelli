@@ -11,16 +11,22 @@
 		 ?>
 		<h1 class="text-center text-success pb-2"  >Agregar Agencia</h1>
 		<hr class="bg-success" style="opacity: 1;">
-		<form class="px-4" method="post" action="php/registraragencia.php">
+		<form class="px-4" id="editaragencia" method="post" action="php/registraragencia.php">
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
 				    <label for="exampleInputEmail1" class="form-label"></label>
 				    <input type="number" name="agencia_id" value="<?= $agencia["idAgencia"] ?? "" ?>" class="form-control" placeholder="ID agencia">
 				    <?php 
 				    	if (in_array("agenciaid", $error)) {
+				    		echo "<p class='text-danger'>Agencia id debe ser numerico y mayor a 0.</p>";
+				    	}
+				    ?>
+				    <?php 
+				    	if (in_array("repeated", $error)) {
 				    		echo "<p class='text-danger'>Agencia id repetida, ingrese otra.</p>";
 				    	}
 				    ?>
+
 				</div>	
 				<div class="mb-2 col-lg-7">
 				    <label for="exampleInputEmail1" class="form-label"></label>
@@ -70,6 +76,24 @@
 			</div>
 		</form>
 	</section>
-	
+	<script>
+	let checked = false;
+	document.querySelector("#editaragencia").addEventListener("submit",function(event){
+		if (checked == false) {
+			event.preventDefault();
+			checked = true;
+			let idUsuario = document.querySelector("#idUsuario");
+			if(idUsuario.value == -1){
+				idUsuario.nextElementSibling.classList.add("active");
+				checked = false;
+			}
+			if (checked == true) {
+				document.querySelector("#editaragencia").submit();
+			}
+		}
+
+	});
+</script>
+
 </body>
 </html>
