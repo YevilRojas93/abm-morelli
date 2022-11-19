@@ -14,7 +14,7 @@
 		if (strlen($_POST["nombre_agencia"]) < 5) {
 			$error .= "_nombre";
 		}
-		$checkDireccion = preg_match("/^([^0-9]*).{3,}$/", $_POST["direccion"]);
+		$checkDireccion = preg_match("/([A-Za-z ]+[ ]+[0-9]+)/", $_POST["direccion"]);
 		if ($checkDireccion == 0) {
 			$error .= "_direccion";
 		}
