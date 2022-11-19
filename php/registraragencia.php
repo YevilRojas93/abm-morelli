@@ -2,16 +2,24 @@
 	require_once("conexion.php");
 	if (isset($_POST)) {
 		$error = "";
-		if ($_POST["agencia_id"] < 4) {
+		$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id == :agencia_id");
+		$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);	
+		$checkAgencia = $sql->fetchAll();
+		if (count($checkAgencia) == 0) {
+			$error .= "_repeated";
+		}
+		if ($_POST["agencia_id"] < 0) {
 			$error .= "_agenciaid";
 		}
 		if (strlen($_POST["nombre_agencia"]) < 5) {
 			$error .= "_nombre";
 		}
-		if (strlen($_POST["direccion"]) < 3) {
+		$checkDireccion = preg_match("/^([^0-9]*).{3,}$/", $_POST["direccion"]);
+		if ($checkDireccion == 0) {
 			$error .= "_direccion";
 		}
-		if (strlen($_POST["localidad"]) < 3) {
+		$checkLocalidad = preg_match("/^([^0-9]*).{3,}$/", $_POST["localidad"]);
+		if ($checkLocalidad == 0) {
 			$error .= "_localidad";
 		}
 		if (strlen($_POST["telefono"]) < 4) {
@@ -22,7 +30,6 @@
 			if (isset($_POST['edit']) AND $_POST["edit"] == true) {
 				$sql = Conexion::conectar()->prepare("UPDATE agencias set idUsuario = :idUsuario,agencia_id = :agencia_id,nombre_agencia = :nombre_agencia,direccion = :direccion,localidad = :localidad,telefono = :telefono WHERE idAgencia = :old_id");
 				$sql->bindParam(":old_id",$_POST["old_id"],PDO::PARAM_INT);
-
 			}
 			else{
 				$sql = Conexion::conectar()->prepare("INSERT INTO agencias (agencia_id,idUsuario,nombre_agencia,direccion,localidad,telefono) VALUES(:agencia_id,:idUsuario,:nombre_agencia,:direccion,:localidad,:telefono)");

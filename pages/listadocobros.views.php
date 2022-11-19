@@ -5,7 +5,26 @@ if (isset($_GET["id"]) AND $_GET['id'] == "pagado"):?>
 		Swal.fire({
 		  icon: 'success',
 		  title: 'Cobro pagado',
-		  text: 'Cobro actualizado exitosamente!.',
+		});
+	</script>
+<?php endif; ?>
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Cobro editado',
+		});
+	</script>
+<?php endif; ?>
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Cobro agregado',
 		});
 	</script>
 <?php endif; ?>

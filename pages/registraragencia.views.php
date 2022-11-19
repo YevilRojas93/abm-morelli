@@ -1,15 +1,21 @@
 <?php 
 	$error = explode("_",$_GET["id"]);
 ?>
+
 	<section class="container px-0 pt-0 pb-3" id="section-form-registrar">
 		<h1 class="text-center text-success pb-2"  >Agregar Agencia</h1>
 		<hr class="bg-success" style="opacity: 1;">
-		<form class="px-4" method="post" action="php/registraragencia.php">
+		<form class="px-4" id="registraragencia" method="post" action="php/registraragencia.php">
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
 				    <input type="number" name="agencia_id" class="form-control" placeholder="ID agencia">
 				    <?php 
 				    	if (in_array("agenciaid", $error)) {
+				    		echo "<p class='text-danger'>Agencia id debe ser numerico y mayor a 0.</p>";
+				    	}
+				    ?>
+				    <?php 
+				    	if (in_array("repeated", $error)) {
 				    		echo "<p class='text-danger'>Agencia id repetida, ingrese otra.</p>";
 				    	}
 				    ?>
@@ -24,7 +30,7 @@
 				</div>
 				<div class="mb-3 col-lg-3">
 					<select name="idUsuario" class="form-control">
-						<option value="">Seleccionar Agenciero</option>
+						<option value="-1">Seleccionar Agenciero</option>
 						<?php
 							require_once("php/conexion.php");
 							$sql = Conexion::conectar()->prepare("SELECT * FROM usuarios WHERE tipo = 'agenciero'");
@@ -35,6 +41,7 @@
 							}
 						?>
 					</select>
+					<p class="text-danger">Debes seleccionar un agenciero.</p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -74,5 +81,24 @@
 		</form>
 	</section>
 	
+<script>
+	let checked = false;
+	document.querySelector("#registraragencia").addEventListener("submit",function(event){
+		if (checked == false) {
+			event.preventDefault();
+			checked = true;
+			let idUsuario = document.querySelector("#idUsuario");
+			if(idUsuario.value == -1){
+				idUsuario.nextElementSibling.style.display = "block";
+			}
+			if (checked == true) {
+				event.submit();
+			}
+		}
+
+	});
+</script>
+
+
 </body>
 </html>
