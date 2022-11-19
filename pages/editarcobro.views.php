@@ -12,7 +12,7 @@
 			  		<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Agencia</label>
 						<select name="idAgencia" id="idAgencia" class="form-control bg-abm-1">
-							<option value="">Seleccionar agencia</option>
+							<option value="-1">Seleccionar agencia</option>
 							<?php 
 								require_once("php/conexion.php"); 
 								$sql = Conexion::conectar()->prepare("SELECT * FROM agencias");
@@ -34,7 +34,7 @@
 					<div class="mb-3 col-lg-6">
 						<label class="fw-bold" for="">Medio de pago</label>
 						<select name="tipo_pago" id="tipo_pago" class="form-select w-100 bg-abm-1">
-						    <option>Selecionar medio de pago</option>
+						    <option value="-1">Selecionar medio de pago</option>
 						    <option value="transferencia" <?php if($cobro["tipo_pago"] == "transferencia"){ echo "selected";} ?>>Transferencia</option>
 						    <option value="efectivo" <?php if($cobro["tipo_pago"] == "efectivo"){ echo "selected";} ?>>Efectivo</option>
 						    <option value="cheque" <?php if($cobro["tipo_pago"] == "cheque"){ echo "selected";} ?>>Cheque </option>
