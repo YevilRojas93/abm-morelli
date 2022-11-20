@@ -6,7 +6,7 @@
 			$_POST["tipo"] = "agenciero";
 		}
 		$error = "";
-		if ($_POST["password1"] < 4) {
+		if (strlen($_POST["password1"]) < 4) {
 			$error .= "_password";
 		}
 		if ($_POST["password1"] != $_POST['password2']) {
@@ -38,7 +38,7 @@
 					header("location:/home/success_edit");
 				}
 				else{
-					header("location:/listadousuarios/success_edit");
+					header("location:/listadousuarios/success_edit_usuario");
 				}
 			}
 		}

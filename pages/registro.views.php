@@ -50,7 +50,7 @@
 			    ?>
 			</div>
 			<div class="col-lg-6">	
-			    <select name="tipo" id="tio" class="form-control bg-abm-1">
+			    <select name="tipo" id="tipo" class="form-control bg-abm-1">
 			    	<option value="">Seleccionar tipo usuario</option>
 			    	<option value="administrador">Administrador</option>
 			    	<option value="agenciero">Agenciero</option>
