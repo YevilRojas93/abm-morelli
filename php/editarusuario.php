@@ -35,7 +35,7 @@
 				if ($_SESSION['idUsuario'] == $_POST["idUsuario"]) {
 					$_SESSION['nombre_completo'] = $_POST["nombre_completo"];
 					$_SESSION['tipo'] = $_POST["tipo"];
-					header("location:/home/success_edit");
+					header("location:/home/success_edit_usuario");
 				}
 				else{
 					header("location:/listadousuarios/success_edit_usuario");
