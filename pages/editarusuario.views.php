@@ -51,9 +51,9 @@
 		 	<div class="mb-2 row justify-content-center">
 		 		<?php if ($_SESSION['tipo'] == "administrador"): ?>
 					<div class="col-lg-6">	
-					    <select name="tipo" id="tio" class="form-control bg-abm-1">
+					    <select name="tipo" id="tipo" class="form-control bg-abm-1">
 					    	<option value="-1">Seleccionar tipo usuario</option>
-					    	<?php var_dump($usuario["tipo"]) ?>
+
 					    	<option value="administrador" <?php if($usuario['tipo'] == "administrador") echo "selected" ?>>Administrador</option>
 					    	<option value="agenciero"  <?php if($usuario['tipo'] == "agenciero") echo "selected" ?>>Agenciero</option>
 					    </select>
