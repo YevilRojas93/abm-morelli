@@ -60,9 +60,7 @@
 			  <button type="submit" class="btn btn-success w-100 ">Enviar</button>
 			 </div>
 	 	</div>
-	 	<div class="text-center mb-2">
-			<a href="login" class="link-primary fs-5">Ir a login</a>
-	 	</div>
+
 		</form>
 	</section>
 	<?php 

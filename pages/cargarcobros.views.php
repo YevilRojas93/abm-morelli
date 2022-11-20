@@ -54,6 +54,11 @@
 				if (checked == false) {
 					event.preventDefault();
 					checked = true;
+					let datepicker = document.querySelector("#datepicker");
+					if(datepicker.value.length < 2){
+						datepicker.nextElementSibling.classList.add("active")
+						checked = false;
+					}
 					let idAgencia = document.querySelector("#idAgencia");
 					if(idAgencia.value == -1){
 						idAgencia.nextElementSibling.classList.add("active")
