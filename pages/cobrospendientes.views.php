@@ -31,11 +31,15 @@
 						?>
 						<tr>
 					      <th scope="row"><?= $value["idCobro"]; ?></th>
-					      <td><?= $value["monto"]; ?></td>
+					      <td class="text-success">$<?= $value["monto"]; ?></td>
 					      <td><?= $value["agencia"]; ?></td>
 					      <td><?= $value["tipo_pago"]; ?></td>
 					      <td><?= $value["fecha_cobro"]; ?></td>
-					      <td><?= $value["status"]; ?></td>
+					      <?php if ($value["status"] == "pendiente"): ?>
+					      	<td class="text-warning fw-bold"><?= $value["status"]; ?></td>
+					      <?php elseif($value["status"] == "pagado"): ?>	
+					      	<td class="text-success fw-bold"><?= $value["status"]; ?></td>
+					      <?php endif ?>
 					    </tr>
 				<?php endforeach; ?>
 			  </tbody>

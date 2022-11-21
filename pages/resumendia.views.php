@@ -13,7 +13,10 @@
 		  <tbody>
 		  	<?php require_once("php/conexion.php"); 
 		  	$dia_actual = date("Y-m-d");
-		  	$agencia = "AND agencias.idUsuario = ".$_SESSION['idUsuario'];
+		  	$agencia = "";
+		  	if ($_SESSION['tipo'] == "agenciero") {
+		  		$agencia = "AND agencias.idUsuario = ".$_SESSION['idUsuario'];	
+		  	}
 		  	?>
 					<tr class="fw-bold fs-5">
 						<?php 
