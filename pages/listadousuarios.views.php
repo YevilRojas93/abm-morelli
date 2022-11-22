@@ -11,7 +11,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
 <?php endif; ?>
 <?php 
 //Si existe la variable id y id es == error
-if (isset($_GET["id"]) AND $_GET['id'] == "success_crear"):?>
+if (isset($_GET["id"]) AND $_GET['id'] == "success_crear_usuario"):?>
 	<script>
 		Swal.fire({
 		  icon: 'success',
