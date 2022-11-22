@@ -15,7 +15,7 @@
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
 				    <label for="exampleInputEmail1" class="form-label"></label>
-				    <input type="number" name="agencia_id" value="<?= $agencia["idAgencia"] ?? "" ?>" class="form-control" placeholder="ID agencia">
+				    <input type="number" name="agencia_id" value="<?= $agencia["agencia_id"] ?? "" ?>" class="form-control" placeholder="ID agencia">
 				    <?php 
 				    	if (in_array("agenciaid", $error)) {
 				    		echo "<p class='text-danger'>Agencia id debe ser numerico y mayor a 0.</p>";

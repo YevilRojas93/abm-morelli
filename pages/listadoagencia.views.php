@@ -20,10 +20,10 @@
 		  	<?php 
 				require_once("php/conexion.php"); 
 				if ($_SESSION["tipo"] == "administrador") {
-					$sql = Conexion::conectar()->prepare("SELECT a.idAgencia,a.nombre_agencia,a.telefono,a.localidad,a.direccion,u.nombre_completo FROM agencias AS a LEFT JOIN usuarios AS u ON u.idUsuario = a.idUsuario");
+					$sql = Conexion::conectar()->prepare("SELECT a.idAgencia,a.nombre_agencia,a.telefono,a.localidad,a.direccion,u.nombre_completo,u.agencia_id FROM agencias AS a LEFT JOIN usuarios AS u ON u.idUsuario = a.idUsuario");
 				}
 				else{
-					$sql = Conexion::conectar()->prepare("SELECT a.idAgencia,a.nombre_agencia,a.telefono,a.localidad,a.direccion,u.nombre_completo FROM agencias AS a LEFT JOIN usuarios AS u ON u.idUsuario = a.idUsuario where a.idUsuario = :idUsuario");
+					$sql = Conexion::conectar()->prepare("SELECT a.idAgencia,a.nombre_agencia,a.telefono,a.localidad,a.direccion,u.nombre_completo,u.agencia_id FROM agencias AS a LEFT JOIN usuarios AS u ON u.idUsuario = a.idUsuario where a.idUsuario = :idUsuario");
 					$sql->bindParam(":idUsuario",$_SESSION['idUsuario'],PDO::PARAM_INT); 
 				}
 				$sql->execute();
