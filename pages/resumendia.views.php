@@ -25,8 +25,8 @@
 							$sql->execute();
 							$efectivo = $sql->fetch();
 						 ?>
-				      <td>
-				      	<?= $efectivo["monto"] ?? 0; ?>
+				      <td class="text-success fw-bold">
+				      	$<?= $efectivo["monto"] ?? 0; ?>
 				      </td>
 				      <?php 
 							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.status = 'pagado' AND cobros.fecha_cobro = :dia_actual $agencia");
