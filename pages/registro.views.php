@@ -27,15 +27,15 @@
 			    		echo "<p class='text-danger'>Debe enviar una contraseña mayor a 4 caracteres.</p>";
 			    	}
 			    ?>
-			    <?php 
-			    	if (in_array("pass2", $error)) {
-			    		echo "<p class='text-danger'>Ambas contraseñas deben ser iguales.</p>";
-			    	}
-			    ?>
 			</div>
 
 			<div class="col-lg-6">
 		    	<input type="password" name="password2" class="form-control bg-abm-1"  placeholder="Repetir Contraseña">
+		    	<?php 
+			    	if (in_array("pass2", $error)) {
+			    		echo "<p class='text-danger'>Ambas contraseñas deben ser iguales.</p>";
+			    	}
+			    ?>
 		 	</div>
 
 	 	</div>
