@@ -4,6 +4,7 @@
 	if (isset($_POST)) {
 		//var_dump($_POST);
 		$error = "";
+		unset($_SESSION['registro_error']);
 		$_SESSION['registro_error']["email"] = $_POST["email"];
 		$_SESSION['registro_error']["nombre_completo"] = $_POST["nombre_completo"];
 		$_SESSION['registro_error']["tipo"] = $_POST["tipo"];
