@@ -51,7 +51,7 @@
 			$sql->bindParam(":localidad",$_POST["localidad"],PDO::PARAM_STR);
 			$sql->bindParam(":telefono",$_POST["telefono"],PDO::PARAM_STR);
 			if ($sql->execute()) {
-				header("location:/home/".$url);
+				//header("location:/home/".$url);
 			}
 		}
 		else{
