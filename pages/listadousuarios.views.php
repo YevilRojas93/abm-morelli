@@ -3,9 +3,20 @@
 if (isset($_GET["id"]) AND $_GET['id'] == "success_edit"):?>
 	<script>
 		Swal.fire({
-		  icon: 'success_edit',
-		  title: 'Modificacion exitoso!',
-		  text: 'Los datos fueron actualizados.',
+		  icon: 'success',
+		  title: 'Usuario editado!',
+
+		});
+	</script>
+<?php endif; ?>
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "success_crear"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Usuario creado!',
+
 		});
 	</script>
 <?php endif; ?>

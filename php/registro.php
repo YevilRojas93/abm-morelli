@@ -38,7 +38,7 @@
 			$sql->bindParam(":password",$_POST["password1"],PDO::PARAM_STR);
 			$sql->bindParam(":tipo",$_POST["tipo"],PDO::PARAM_STR);
 			if ($sql->execute()) {
-				header("location:/listadousuarios/success");
+				header("location:/listadousuarios/success_crear_usuario");
 			}
 		}
 		else{

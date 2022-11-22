@@ -38,7 +38,7 @@
 					header("location:/home/success_edit_usuario");
 				}
 				else{
-					header("location:/listadousuarios/success_edit_usuario");
+					header("location:/listadousuarios/success_edit");
 				}
 			}
 		}
