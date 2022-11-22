@@ -11,6 +11,7 @@
 			$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id = :agencia_id");
 			$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);	
 		}
+		$sql->execute();
 		$checkAgencia = $sql->fetchAll();
 		var_dump($checkAgencia);
 		var_dump($_POST["idAgencia"]);
