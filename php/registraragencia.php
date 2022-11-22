@@ -3,12 +3,12 @@
 	if (isset($_POST)) {
 		$error = "";
 		if (isset($_POST['edit']) AND $_POST["edit"] == true) {
-			$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id == :agencia_id AND idAgencia  != :idAgencia");
+			$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id = :agencia_id AND idAgencia  != :idAgencia");
 			$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);	
 			$sql->bindParam(":idAgencia",$_POST["idAgencia"],PDO::PARAM_INT);	
 		}
 		else{
-			$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id == :agencia_id");
+			$sql = Conexion::conectar()->prepare("SELECT * FROM agencias WHERE agencia_id = :agencia_id");
 			$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);	
 		}
 		$checkAgencia = $sql->fetchAll();
