@@ -28,7 +28,7 @@
 				    ?>
 
 				</div>	
-				<div class="mb-2 col-lg-7">
+				<div class="mb-2 col-lg-4">
 				    <label for="exampleInputEmail1" class="form-label"></label>
 				    <input type="text" name="nombre_agencia" value="<?= $agencia["nombre_agencia"] ?? "" ?>" class="form-control" placeholder="Nombre Agencia">
 				    <?php 
@@ -36,7 +36,24 @@
 				    		echo "<p class='text-danger'>Debe enviar un nombre de agencia mayor a 4 caracteres.</p>";
 				    	}
 				    ?>
-				</div>	
+				</div>
+				<div class="mb-3 col-lg-3">
+					<select name="idUsuario" id="idUsuario" class="form-control">
+						<option value="-1">Seleccionar Agenciero</option>
+						<?php
+							require_once("php/conexion.php");
+							$sql = Conexion::conectar()->prepare("SELECT * FROM usuarios WHERE tipo = 'agenciero'");
+							$sql->execute();
+							$lista_agencia = $sql->fetchAll();
+							foreach ($lista_agencia as $key => $value) {
+								$actual = "";
+								if($value["idUsuario"] == $agencia["idUsuario"]) $actual = "selected";
+								echo "<option value='".$value["idUsuario"]."' ".$actual.">".$value["nombre_completo"]."</option>";
+							}
+						?>
+					</select>
+					<p class="text-danger error-message">Debes seleccionar un agenciero.</p>
+				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="mb-4 col-lg-3">
