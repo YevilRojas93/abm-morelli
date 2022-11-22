@@ -38,6 +38,7 @@
 				    ?>
 				</div>
 				<div class="mb-3 col-lg-3">
+					<label for="" class="form-label"></label>
 					<select name="idUsuario" id="idUsuario" class="form-control">
 						<option value="-1">Seleccionar Agenciero</option>
 						<?php
