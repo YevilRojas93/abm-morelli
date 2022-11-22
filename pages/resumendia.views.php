@@ -10,7 +10,7 @@
 		      <th scope="col">Por efectivo</th>
 		    </tr>
 		  </thead>
-		  <tbody>
+		  <tbody class="text-center">
 		  	<?php require_once("php/conexion.php"); 
 		  	$dia_actual = date("Y-m-d");
 		  	$agencia = "";
