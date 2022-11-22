@@ -85,6 +85,10 @@
 	let checked = false;
 	document.querySelector("#registraragencia").addEventListener("submit",function(event){
 		if (checked == false) {
+			let mensajes = document.querySelectorAll(".error-message");
+			mensajes.forEach((element)=>{
+				element.classList.remove("active");
+			});
 			event.preventDefault();
 			checked = true;
 			let idUsuario = document.querySelector("#idUsuario");

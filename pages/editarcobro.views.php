@@ -65,6 +65,10 @@
 			let checked = false;
 			document.querySelector("#editarcobro").addEventListener("submit",function(event){
 				if (checked == false) {
+					let mensajes = document.querySelectorAll(".error-message");
+					mensajes.forEach((element)=>{
+						element.classList.remove("active");
+					});
 					event.preventDefault();
 					checked = true;
 					let idAgencia = document.querySelector("#idAgencia");

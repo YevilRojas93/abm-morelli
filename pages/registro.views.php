@@ -78,6 +78,10 @@
 		let checked = false;
 		document.querySelector("#registro").addEventListener("submit",function(event){
 			if (checked == false) {
+				let mensajes = document.querySelectorAll(".error-message");
+				mensajes.forEach((element)=>{
+					element.classList.remove("active");
+				});
 				event.preventDefault();
 				checked = true;
 				let tipo = document.querySelector("#tipo");
