@@ -13,9 +13,7 @@
 		}
 		$sql->execute();
 		$checkAgencia = $sql->fetchAll();
-		var_dump($checkAgencia);
-		var_dump($_POST["idAgencia"]);
-		var_dump($_POST["agencia_id"]);
+
 		if (count($checkAgencia) > 0) {
 			$error .= "_repeated";
 		}
@@ -54,15 +52,15 @@
 			$sql->bindParam(":localidad",$_POST["localidad"],PDO::PARAM_STR);
 			$sql->bindParam(":telefono",$_POST["telefono"],PDO::PARAM_STR);
 			if ($sql->execute()) {
-				//header("location:/home/".$url);
+				header("location:/home/".$url);
 			}
 		}
 		else{
 			if (isset($_POST['edit']) AND $_POST["edit"] == true) {
-				//header("location:/editaragencia/".$_POST["old_id"]."/".$error);
+				header("location:/editaragencia/".$_POST["old_id"]."/".$error);
 			}
 			else{
-				//header("location:/registraragencia/".$error);
+				header("location:/registraragencia/".$error);
 			}
 		}
 	}
