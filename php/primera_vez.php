@@ -16,12 +16,12 @@
 				$sql->bindParam(":idUsuario",$_POST["idUsuario"],PDO::PARAM_INT);
 				$sql->execute();
 				$respuesta = $sql->fetch();
-
+				session_start();
 				$_SESSION['idUsuario'] = $respuesta["idUsuario"];
 				$_SESSION['nombre_completo'] = $respuesta["nombre_completo"];
 				$_SESSION['tipo'] = $respuesta["tipo"];
 				$_SESSION['idAgencia'] = $respuesta["idAgencia"];
-				header("location:/home");
+				header("location:/home/password_cambiada");
 			}
 		}
 	}

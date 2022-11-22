@@ -16,7 +16,6 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_crear_usuario"):?>
 		Swal.fire({
 		  icon: 'success',
 		  title: 'Usuario creado!',
-
 		});
 	</script>
 <?php endif; ?>
