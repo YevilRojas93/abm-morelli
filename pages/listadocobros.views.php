@@ -48,11 +48,11 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 		  	<?php 
 				require_once("php/conexion.php");
 				if ($_SESSION['tipo'] == "agenciero") {
-					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia WHERE a.idUsuario = :idUsuario");
+					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status,a.agencia_id FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia WHERE a.idUsuario = :idUsuario");
 					$sql->bindParam(":idUsuario",$_SESSION['idUsuario'],PDO::PARAM_INT);
 				}
 				elseif($_SESSION['tipo'] == "administrador"){
-					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia");
+					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status,a.agencia_id FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia");
 				}
 				$sql->execute();
 				$lista_cobros = $sql->fetchAll();
@@ -63,7 +63,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 					?>
 					<tr>
 				      <th scope="row"><?= $value["idCobro"]; ?></th>
-				      <td><?= $value["monto"]; ?></td>
+				      <td class="text-success">$<?= $value["monto"]; ?></td>
 				      <td><?= $value["agencia"]; ?></td>
 				      <td><?= $value["agencia_id"]; ?></td>
 				      <td><?= $value["tipo_pago"]; ?></td>
