@@ -15,7 +15,7 @@
 			<input type="hidden" name="idAgencia" value="<?= $_GET['id'] ?>">
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
-				    <label for="exampleInputEmail1" class="form-label"></label>
+				    <label for="exampleInputEmail1" class="form-label">ID agencia</label>
 				    <input type="number" name="agencia_id" value="<?= $agencia["agencia_id"] ?? "" ?>" class="form-control" placeholder="ID agencia">
 				    <?php 
 				    	if (in_array("agenciaid", $error)) {
@@ -30,7 +30,7 @@
 
 				</div>	
 				<div class="mb-2 col-lg-4">
-				    <label for="exampleInputEmail1" class="form-label"></label>
+				    <label for="exampleInputEmail1" class="form-label">Nombre agencia</label>
 				    <input type="text" name="nombre_agencia" value="<?= $agencia["nombre_agencia"] ?? "" ?>" class="form-control" placeholder="Nombre Agencia">
 				    <?php 
 				    	if (in_array("nombre", $error)) {
@@ -39,7 +39,7 @@
 				    ?>
 				</div>
 				<div class="mb-3 col-lg-3">
-					<label for="" class="form-label"></label>
+					<label for="" class="form-label">Agenciero</label>
 					<select name="idUsuario" id="idUsuario" class="form-control">
 						<option value="-1">Seleccionar Agenciero</option>
 						<?php
@@ -59,7 +59,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="mb-4 col-lg-3">
-					<label for="exampleInputPassword1" class="form-label"></label>
+					<label for="exampleInputPassword1" class="form-label">Direccion</label>
 					<input type="text" name="direccion" value="<?= $agencia["direccion"] ?? "" ?>" class="form-control" placeholder="Direccion">
 					<?php 
 				    	if (in_array("direccion", $error)) {
@@ -68,7 +68,7 @@
 				    ?>
 				</div>
 				<div class="mb-4 col-lg-3">
-				    <label for="exampleInputEmail1" class="form-label"></label>
+				    <label for="exampleInputEmail1" class="form-label">Localidad</label>
 				    <input type="text" name="localidad" value="<?= $agencia["localidad"] ?? "" ?>" class="form-control" placeholder="Localidad">
 				    <?php 
 				    	if (in_array("localidad", $error)) {
@@ -77,7 +77,7 @@
 				    ?>
 				</div>
 				<div class="mb-4 col-lg-3">
-				    <label for="exampleInputPassword1" class="form-label"></label>
+				    <label for="exampleInputPassword1" class="form-label">Telefono</label>
 				    <input type="number" name="telefono" value="<?= $agencia["telefono"] ?? "" ?>" class="form-control" placeholder="Telefono">
 				    <?php 
 				    	if (in_array("telefono", $error)) {
