@@ -20,7 +20,7 @@
 			  			$agencia = "AND a.idUsuario = ".$_SESSION['idUsuario'];
 			  		}
 
-					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia WHERE fecha_cobro >= :dia_actual $agencia AND c.status = 'pendiente'");
+					$sql = Conexion::conectar()->prepare("SELECT c.monto,c.idCobro,a.nombre_agencia as agencia,c.tipo_pago,c.fecha_cobro,c.status FROM cobros as c INNER JOIN agencias as a ON a.idAgencia = c.idAgencia WHERE fecha_cobro => :dia_actual $agencia AND c.status = 'pendiente'");
 					$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
 					$sql->execute();
 					$lista_cobros = $sql->fetchAll();
