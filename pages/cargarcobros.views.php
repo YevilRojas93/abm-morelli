@@ -35,6 +35,8 @@
 			 	<div class="row justify-content-center">
 					<div class="mb-3 col-lg-6">
 					    <input type="text" name="fecha_cobro" id="datepicker" class="form-control bg-abm-1" placeholder="Fecha de Cobro">
+					  <p class="text-danger error-message">La fecha debe ser ingresada</p>
+
 					</div>
 					<div class="mb-3 col-lg-6">
 					  <input type="number" name="monto" class="form-control bg-abm-1" id="monto" placeholder="Monto a pagar">
