@@ -37,6 +37,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 		      <th scope="col">ID cobro</th>
 		      <th scope="col">Monto</th>
 		      <th scope="col">Agencia</th>
+		      <th scope="col">Agencia Id</th>
 		      <th scope="col">Tipo de pago</th>
 		      <th scope="col">Fecha</th>
 		      <th scope="col">status</th>
@@ -64,6 +65,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 				      <th scope="row"><?= $value["idCobro"]; ?></th>
 				      <td><?= $value["monto"]; ?></td>
 				      <td><?= $value["agencia"]; ?></td>
+				      <td><?= $value["agencia_id"]; ?></td>
 				      <td><?= $value["tipo_pago"]; ?></td>
 				      <td><?= $value["fecha_cobro"]; ?></td>
 				      <?php if ($value["status"] == "pendiente"): ?>
