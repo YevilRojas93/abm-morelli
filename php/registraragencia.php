@@ -12,6 +12,7 @@
 			$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);	
 		}
 		$checkAgencia = $sql->fetchAll();
+		var_dump($checkAgencia);
 		if (count($checkAgencia) > 0) {
 			$error .= "_repeated";
 		}
@@ -55,10 +56,10 @@
 		}
 		else{
 			if (isset($_POST['edit']) AND $_POST["edit"] == true) {
-				header("location:/editaragencia/".$_POST["old_id"]."/".$error);
+				//header("location:/editaragencia/".$_POST["old_id"]."/".$error);
 			}
 			else{
-				header("location:/registraragencia/".$error);
+				//header("location:/registraragencia/".$error);
 			}
 		}
 	}
