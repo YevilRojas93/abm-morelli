@@ -9,7 +9,7 @@
 		<form method="post" id="registro" action="php/registro.php" class="px-5">
 	  	<div class="my-4">
 	  	    <div class="col-lg-12">
-		    	<input type="email" name="email" class="form-control bg-abm-1"  placeholder="Email">
+		    	<input type="email" name="email" class="form-control bg-abm-1"  placeholder="Email" value="<?= $_SESSION['registro_error']["email"] ?? "" ?>">
 		    	<?php 
 		    	if (in_array("email", $error)) {
 		    		echo "<p class='text-danger'>Debe enviar un email mayor a 5 caracteres.</p>";
@@ -42,7 +42,7 @@
 
 	 	<div class="mb-2 row justify-content-center">
 	 		<div class="col-lg-6">
-			    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo">
+			    <input  type="text" name="nombre_completo" class="form-control bg-abm-1" placeholder="Nombre Completo"  value="<?= $_SESSION['registro_error']["nombre_completo"] ?? "" ?>">
 			    <?php 
 			    	if (in_array("nombre", $error)) {
 			    		echo "<p class='text-danger'>Debe enviar un nombre mayor a 4 caracteres.</p>";
@@ -52,8 +52,8 @@
 			<div class="col-lg-6">	
 			    <select name="tipo" id="tipo" class="form-control bg-abm-1">
 			    	<option value="">Seleccionar tipo usuario</option>
-			    	<option value="administrador">Administrador</option>
-			    	<option value="agenciero">Agenciero</option>
+			    	<option value="administrador" <?php if($_SESSION['registro_error']["tipo"] == "administrador") echo "selected" ?> >Administrador</option>
+			    	<option value="agenciero" <?php if($_SESSION['registro_error']["tipo"] == "agenciero") echo "selected" ?> >Agenciero</option>
 			    </select>
 			</div>  
 		 	<div class="col-6 mt-4">
