@@ -41,7 +41,9 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 		      <th scope="col">Tipo de pago</th>
 		      <th scope="col">Fecha</th>
 		      <th scope="col">status</th>
-		      <th scope="col">Modificar</th>
+			  <?php if ($_SESSION["tipo"] == "administrador"): ?>
+		      	<th scope="col">Modificar</th>
+		  	  <?php endif; ?>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -73,13 +75,13 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 				      <?php elseif($value["status"] == "pagado"): ?>	
 				      	<td class="text-success fw-bold"><?= $value["status"]; ?></td>
 				      <?php endif ?>
+				      <?php if ($_SESSION["tipo"] == "administrador"): ?>
 				      <td>
-				      	<?php if ($_SESSION["tipo"] == "administrador"): ?>
 				      	<a class="btn btn-warning" href="editarcobro/<?= $value['idCobro']; ?>">editar</a>
 				      	<a class="btn btn-danger" href="borrarcobro/<?= $value['idCobro']; ?>">borrar</a>
 				      		<a class="btn btn-primary" href="pagarcobro/<?= $value['idCobro']; ?>">Pagado</a>
-				      	<?php endif ?>
 				  	  </td>
+				      <?php endif ?>
 				    </tr>
 			<?php endforeach; ?>
 		  </tbody>

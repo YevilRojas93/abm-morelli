@@ -1,5 +1,5 @@
 <?php 
-	if (!isset($_GET["id"]) OR $_GET["id"] < 0 AND $_SESSION['tipo'] == "agenciero") {
+	if (!isset($_GET["id"]) OR $_GET["id"] < 0 OR $_SESSION['tipo'] == "agenciero") {
 		header("location:/home");
 	}
  ?>
