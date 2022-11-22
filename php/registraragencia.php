@@ -15,6 +15,7 @@
 		var_dump($checkAgencia);
 		var_dump($_POST["agencia_id"]);
 		var_dump($_POST["idAgencia"]);
+		var_dump($_POST);
 		if (count($checkAgencia) > 0) {
 			$error .= "_repeated";
 		}
