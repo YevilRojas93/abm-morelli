@@ -21,7 +21,7 @@
 				$_SESSION['nombre_completo'] = $respuesta["nombre_completo"];
 				$_SESSION['tipo'] = $respuesta["tipo"];
 				$_SESSION['idAgencia'] = $respuesta["idAgencia"];
-				//header("location:/home/password_cambiada");
+				header("location:/home/password_cambiada");
 			}
 		}
 	}
