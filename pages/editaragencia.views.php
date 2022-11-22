@@ -12,6 +12,7 @@
 		<h1 class="text-center text-success pb-2"  >Agregar Agencia</h1>
 		<hr class="bg-success" style="opacity: 1;">
 		<form class="px-4" id="editaragencia" method="post" action="php/registraragencia.php">
+			<input type="hidden" name="idAgencia" value="<?= $_GET['id'] ?>">
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
 				    <label for="exampleInputEmail1" class="form-label"></label>
