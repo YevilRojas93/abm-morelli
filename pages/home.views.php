@@ -3,7 +3,7 @@
 if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_usuario"):?>
 	<script>
 		Swal.fire({
-		  icon: 'error',
+		  icon: 'success',
 		  title: 'Usuario editado',
 		  text: 'Usuario modificado correctamente!.',
 		});
@@ -15,7 +15,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_usuario"):?>
 if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_agencia"):?>
 	<script>
 		Swal.fire({
-		  icon: 'error',
+		  icon: 'success',
 		  title: 'Agencia editado',
 		  text: 'Agencia modificada correctamente!.',
 		});
@@ -27,7 +27,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_agencia"):?>
 if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_cobro"):?>
 	<script>
 		Swal.fire({
-		  icon: 'error',
+		  icon: 'success',
 		  title: 'Cobro editado',
 		  text: 'Cobro modificado exitosamente!.',
 		});
