@@ -30,7 +30,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 <?php endif; ?>
 
 	<section id="section-listado" class="container-fluid px-5">
-		<h1 class="bg-success text-center px-0 mb-0">Listado de Agencia</h1>
+		<h1 class="bg-success text-center px-0 mb-0">Listado de Cobros</h1>
 			<table class="table border border-4 ">
 		  <thead>
 		    <tr>
@@ -63,7 +63,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_cobro"):?>
 					?>
 					<tr>
 				      <th scope="row"><?= $value["idCobro"]; ?></th>
-				      <td class="text-success">$<?= $value["monto"]; ?></td>
+				      <td class="text-success fw-bold">$<?= $value["monto"]; ?></td>
 				      <td><?= $value["agencia"]; ?></td>
 				      <td><?= $value["agencia_id"]; ?></td>
 				      <td><?= $value["tipo_pago"]; ?></td>
