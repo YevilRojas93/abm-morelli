@@ -60,7 +60,7 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_usuario"):?>
 
 <?php 
 //Si existe la variable id y id es == error
-if (isset($_GET["id"]) AND $_GET['id'] == "success_agencia"):?>
+if (isset($_GET["id"]) AND $_GET['id'] == "success_create_agencia"):?>
 	<script>
 		Swal.fire({
 		  icon: 'success',
