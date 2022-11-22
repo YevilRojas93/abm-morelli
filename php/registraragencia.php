@@ -30,9 +30,11 @@
 			if (isset($_POST['edit']) AND $_POST["edit"] == true) {
 				$sql = Conexion::conectar()->prepare("UPDATE agencias set idUsuario = :idUsuario,agencia_id = :agencia_id,nombre_agencia = :nombre_agencia,direccion = :direccion,localidad = :localidad,telefono = :telefono WHERE idAgencia = :old_id");
 				$sql->bindParam(":old_id",$_POST["old_id"],PDO::PARAM_INT);
+				$url = "success_agencia_edit";
 			}
 			else{
 				$sql = Conexion::conectar()->prepare("INSERT INTO agencias (agencia_id,idUsuario,nombre_agencia,direccion,localidad,telefono) VALUES(:agencia_id,:idUsuario,:nombre_agencia,:direccion,:localidad,:telefono)");
+				$url = "success_agencia_create";
 			}
 			$sql->bindParam(":idUsuario",$_POST["idUsuario"],PDO::PARAM_INT);
 			$sql->bindParam(":agencia_id",$_POST["agencia_id"],PDO::PARAM_INT);
@@ -41,7 +43,7 @@
 			$sql->bindParam(":localidad",$_POST["localidad"],PDO::PARAM_STR);
 			$sql->bindParam(":telefono",$_POST["telefono"],PDO::PARAM_STR);
 			if ($sql->execute()) {
-				header("location:/home/success_agencia");
+				//header("location:/home/".$url);
 			}
 		}
 		else{
