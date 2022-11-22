@@ -29,11 +29,22 @@ if (isset($_GET["id"]) AND $_GET['id'] == "success_edit_cobro"):?>
 		Swal.fire({
 		  icon: 'error',
 		  title: 'Cobro editado',
-		  text: 'Cobro modificado correctamente!.',
+		  text: 'Cobro modificado exitosamente!.',
 		});
 	</script>
 <?php endif; ?>
 
+
+<?php 
+//Si existe la variable id y id es == error
+if (isset($_GET["id"]) AND $_GET['id'] == "password_cambiada"):?>
+	<script>
+		Swal.fire({
+		  icon: 'success',
+		  title: 'Contraseña modificada exitosamente!',
+		});
+	</script>
+<?php endif; ?>
 
 <?php 
 //Si existe la variable id y id es == error
