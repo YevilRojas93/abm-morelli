@@ -1,3 +1,6 @@
+<?php if ($_SESSION["tipo"] == "agenciero"){
+	header("location:/home");
+} ?>
 <?php 
 	$error = explode("_",$_GET["id"]);
 ?>

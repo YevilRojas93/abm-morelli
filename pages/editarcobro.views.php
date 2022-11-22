@@ -1,3 +1,8 @@
+<?php 
+	if (!isset($_GET["id"]) OR $_GET["id"] < 0 AND $_SESSION['tipo'] == "agenciero") {
+		header("location:/home");
+	}
+ ?>
 		<section class="container border border-4 border-success  px-0 rounded-3 bg-light " id="section-cargar-cobros">
 			<h1 class="bg-success text-center px-0">editar cobros</h1>
 			<?php 

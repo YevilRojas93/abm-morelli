@@ -1,5 +1,8 @@
 <?php 
 	$error = explode("_",$_GET["status"]);
+	if (!isset($_GET["id"]) OR $_GET["id"] < 0 OR $_SESSION['tipo'] == "agenciero") {
+		header("location:/home");
+	}
 ?>
 <section class="container px-0 pt-0 pb-3" id="section-form-registrar">
 		<?php 
