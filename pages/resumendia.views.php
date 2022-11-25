@@ -5,16 +5,17 @@
 		<h1 class="bg-success text-center px-0 mb-0">RESUMEN POR FECHA</h1>
 		<p class="bg-success text-center px-0 mb-0">De <?= $_POST["fecha_inicio"] ?> a <?= $_POST["fecha_fin"] ?> </p>
 	<?php endif ?>
-		<form method="post" class="row">
+		<form method="post" class="row px-3 text-center">
 			<div class="col-md-5">
-				<label for="">Fecha inicio</label>
+				<label for="" class="fw-bold">Fecha inicio</label>
 				<input type="text" name="fecha_inicio" id="fecha_inicio" class="form-control">
 			</div>
 			<div class="col-md-5">
-				<label for="">Fecha fin</label>
+				<label for="" class="fw-bold">Fecha fin</label>
 				<input type="text" name="fecha_fin" id="fecha_fin" class="form-control">
 			</div>
 			<div class="col-md-2">
+				<label for=""></label>
 				<button class="btn btn-success w-100" type="submit">Filtrar</button>
 			</div>
 		</form>
