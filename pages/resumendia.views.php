@@ -5,7 +5,7 @@
 		<h1 class="bg-success text-center px-0 mb-0">RESUMEN POR FECHA</h1>
 		<p class="bg-success text-center px-0 mb-0">De <?= $_POST["fecha_inicio"] ?> a <?= $_POST["fecha_fin"] ?> </p>
 	<?php endif ?>
-		<form method="post" class="row px-3 text-center">
+		<form method="post" class="row py-2 px-3 text-center">
 			<div class="col-md-5">
 				<label for="" class="fw-bold">Fecha inicio</label>
 				<input type="text" name="fecha_inicio" id="fecha_inicio" class="form-control">
