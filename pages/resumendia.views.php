@@ -55,7 +55,8 @@
 				      </td>
 				      <?php 
 							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.status = 'pagado' AND cobros.fecha_cobro BETWEEN :fecha_inicio and :fecha_fin $agencia");
-							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_inicio",$fecha_inicio,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_fin",$fecha_fin,PDO::PARAM_STR);
 							$sql->execute();
 							$efectivo = $sql->fetch();
 						 ?>
@@ -65,7 +66,8 @@
 
 				      <?php 
 							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.status = 'pagado' AND  cobros.fecha_cobro BETWEEN :fecha_inicio and :fecha_fin AND tipo_pago = 'transferencia' $agencia");
-							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_inicio",$fecha_inicio,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_fin",$fecha_fin,PDO::PARAM_STR);
 							$sql->execute();
 							$transferencia = $sql->fetch();
 						 ?>
@@ -74,7 +76,8 @@
 				      </td>
 				      <?php 
 							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.status = 'pagado' AND cobros.fecha_cobro BETWEEN :fecha_inicio and :fecha_fin AND tipo_pago = 'cheque' $agencia");
-							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_inicio",$fecha_inicio,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_fin",$fecha_fin,PDO::PARAM_STR);
 							$sql->execute();
 							$cheque = $sql->fetch();
 						 ?>
@@ -83,7 +86,8 @@
 				      </td>
 				      <?php 
 							$sql = Conexion::conectar()->prepare("SELECT count(idCobro) as cantidad FROM cobros INNER JOIN agencias ON agencias.idAgencia = cobros.idAgencia WHERE cobros.status = 'pagado' AND cobros.fecha_cobro BETWEEN :fecha_inicio and :fecha_fin AND tipo_pago = 'efectivo' $agencia");
-							$sql->bindParam(":dia_actual",$dia_actual,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_inicio",$fecha_inicio,PDO::PARAM_STR);
+							$sql->bindParam(":fecha_fin",$fecha_fin,PDO::PARAM_STR);
 							$sql->execute();
 							$efectivo = $sql->fetch();
 						 ?>
