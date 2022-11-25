@@ -3,7 +3,7 @@
 		<h1 class="bg-success text-center px-0 mb-0">RESUMEN DEL DIA</h1>
 	<?php else: ?>
 		<h1 class="bg-success text-center px-0 mb-0">RESUMEN POR FECHA</h1>
-		<p class="bg-success text-center px-0 mb-0">De <?= $_POST["fecha_inicio"] ?> a <?= $_POST["fecha_fin"] ?> </p>
+		<p class="bg-success text-light text-center px-0 mb-0">De <?= $_POST["fecha_inicio"] ?> a <?= $_POST["fecha_fin"] ?> </p>
 	<?php endif ?>
 		<form method="post" class="row py-2 px-3 text-center">
 			<div class="col-md-5">
