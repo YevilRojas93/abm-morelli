@@ -76,7 +76,7 @@
     </ul>
     <div>
     		<div class="btn-group">
-    			<a class="btn btn-warning fw-bold" href="Manual_Basico_PHP.pdf" download="manual.pdf" target="_blank">Descargar Manual</a>
+    			<a class="btn btn-warning fw-bold text-light" href="Manual_Basico_PHP.pdf" download="manual.pdf" target="_blank">Descargar Manual</a>
 				  <button class="btn btn-success fw-bold dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 				    <?= $_SESSION["nombre_completo"]  ?><i class="fas fa-chevron-down"></i>
 				  </button>
