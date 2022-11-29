@@ -13,7 +13,9 @@
 		      <th scope="col">Agenciero</th>
 		      <th scope="col">localidad</th>
 		      <th scope="col">direccion</th>
-		      <th scope="col">Modificar</th>
+		      <?php if (isset($_SESSION["tipo"] == "administrador")): ?>
+		      	<th scope="col">Modificar</th>
+		  	  <?php endif; ?>	
 		    </tr>
 		  </thead>
 		  <tbody class="fs-5">
@@ -40,10 +42,12 @@
 				      <td><?= ($value["nombre_completo"] ?? "NINGUNO"); ?></td>
 				      <td><?= $value["localidad"]; ?></td>
 				      <td><?= $value["direccion"]; ?></td>
-				      <td>
-				      	<a class="btn btn-warning" href="editaragencia/<?= $value["idAgencia"]; ?>">Editar</a>
-				      	<a class="btn btn-danger" href="borraragencia/<?= $value["idAgencia"]; ?>">Borrar</a>
-				      </td>
+				      <?php if (isset($_SESSION["tipo"] == "administrador")): ?>
+					      <td>
+					      	<a class="btn btn-warning" href="editaragencia/<?= $value["idAgencia"]; ?>">Editar</a>
+					      	<a class="btn btn-danger" href="borraragencia/<?= $value["idAgencia"]; ?>">Borrar</a>
+					      </td>
+				  	  <?php endif; ?>
 				    </tr>
 			<?php endforeach; ?>
 		  </tbody>
