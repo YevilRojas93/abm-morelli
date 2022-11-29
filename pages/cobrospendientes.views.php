@@ -29,7 +29,7 @@
 			  	<?php 
 					require_once("php/conexion.php"); 
 			  		$dia_actual = date("Y-m-d");
-				  	$fecha_inicio = $_POST["fecha_inicio"] ?? date('Y-m-d',);  
+				  	$fecha_inicio = $_POST["fecha_inicio"] ?? date('1970-01-01');  
 				  	$date = new DateTime(date("Y-m-d")); // Y-m-d
 					$date->add(new DateInterval('P90D'));
 					$fin_default =  $date->format('Y-m-d');
