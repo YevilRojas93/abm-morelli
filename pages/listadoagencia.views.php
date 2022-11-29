@@ -36,6 +36,7 @@
 				foreach ($lista_agencia as $key => $value):
 					?>
 					<tr>
+						<!--  -->
 				      <th scope="row"><?= $value["agencia_id"]; ?></th>
 				      <td><?= $value["nombre_agencia"]; ?></td>
 				      <td><?= $value["telefono"]; ?></td>
