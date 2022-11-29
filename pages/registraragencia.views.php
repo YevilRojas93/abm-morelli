@@ -11,7 +11,7 @@
 		<form class="px-4" id="registraragencia" method="post" action="php/registraragencia.php">
 			<div class="row justify-content-center">
 				<div class="mb-2 col-lg-2">
-				    <input type="number" name="agencia_id" class="form-control" placeholder="ID agencia">
+				    <input type="number" name="agencia_id" value="<?= $_SESSION['agencia_error']["agencia_id"] ?? '' ?>" class="form-control" placeholder="ID agencia">
 				    <?php 
 				    	if (in_array("agenciaid", $error)) {
 				    		echo "<p class='text-danger'>Agencia id debe ser numerico y mayor a 0.</p>";
@@ -24,7 +24,7 @@
 				    ?>
 				</div>	
 				<div class="mb-2 col-lg-4">
-				    <input type="text" name="nombre_agencia" class="form-control" placeholder="Nombre Agencia">
+				    <input type="text" name="nombre_agencia"  value="<?= $_SESSION['agencia_error']["nombre_agencia"] ?? '' ?>" class="form-control" placeholder="Nombre Agencia">
 				    <?php 
 				    	if (in_array("nombre", $error)) {
 				    		echo "<p class='text-danger'>Debe enviar un nombre de agencia mayor a 4 caracteres.</p>";
@@ -40,7 +40,11 @@
 							$sql->execute();
 							$lista_agencia = $sql->fetchAll();
 							foreach ($lista_agencia as $key => $value) {
-								echo "<option value='".$value["idUsuario"]."'>".$value["nombre_completo"]."</option>";
+								$selected == "";
+								if (isset($_SESSION['agencia_error']["idUsuario"]) AND $value["idUsuario"] == $_SESSION['agencia_error']["idUsuario"]) {
+									$selected = " selected ";
+								}
+								echo "<option value='".$value["idUsuario"]."' ".$selected.">".$value["nombre_completo"]."</option>";
 							}
 						?>
 					</select>
@@ -50,7 +54,7 @@
 			<div class="row justify-content-center">
 				<div class="mb-4 col-lg-3">
 					<label for="exampleInputPassword1" class="form-label"></label>
-					<input type="text" name="direccion" class="form-control" placeholder="Direccion">
+					<input type="text" name="direccion"  value="<?= $_SESSION['agencia_error']["direccion"] ?? '' ?>" class="form-control" placeholder="Direccion">
 					<?php 
 				    	if (in_array("direccion", $error)) {
 				    		echo "<p class='text-danger'>La direccion debe ser en el siguiente formato ej:'calle 123'.</p>";
@@ -59,7 +63,7 @@
 				</div>
 				<div class="mb-4 col-lg-3">
 				    <label for="exampleInputEmail1" class="form-label"></label>
-				    <input type="text" name="localidad" class="form-control" placeholder="Localidad">
+				    <input type="text" name="localidad"  value="<?= $_SESSION['agencia_error']["localidad"] ?? '' ?>" class="form-control" placeholder="Localidad">
 				    <?php 
 				    	if (in_array("localidad", $error)) {
 				    		echo "<p class='text-danger'>Debe enviar un localidad mayor a 2 caracteres.</p>";
@@ -68,7 +72,7 @@
 				</div>
 				<div class="mb-4 col-lg-3">
 				    <label for="exampleInputPassword1" class="form-label"></label>
-				    <input type="number" name="telefono" class="form-control" placeholder="Telefono">
+				    <input type="number" name="telefono"  value="<?= $_SESSION['agencia_error']["telefono"] ?? '' ?>" class="form-control" placeholder="Telefono">
 				    <?php 
 				    	if (in_array("telefono", $error)) {
 				    		echo "<p class='text-danger'>Debe enviar un telefono mayor a 4 numeros.</p>";
