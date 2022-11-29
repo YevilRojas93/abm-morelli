@@ -40,9 +40,8 @@
 							$sql->execute();
 							$lista_agencia = $sql->fetchAll();
 							foreach ($lista_agencia as $key => $value) {
-								$selected == "";
+								$selected = "";
 								if (isset($_SESSION['agencia_error']["idUsuario"]) AND $value["idUsuario"] == $_SESSION['agencia_error']["idUsuario"]) {
-									var_dump($value["idUsuario"]);
 									$selected = " selected ";
 								}
 								echo "<option value='".$value["idUsuario"]."' ".$selected.">".$value["nombre_completo"]."</option>";
