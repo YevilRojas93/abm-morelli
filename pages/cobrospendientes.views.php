@@ -34,7 +34,7 @@
 				  	$date = new DateTime(date("Y-m-d")); // Y-m-d
 					$date->add(new DateInterval('P90D'));
 					$fin_default =  $date->format('Y-m-d');
-				  	$fecha_fin = $_POST["fecha_fin"] ?? $fin_default;  
+				  	$fecha_fin = $_POST["fecha_fin"] ?? date('2023-12-31');  
 
 
 				  	$fecha_inicio = htmlentities($fecha_inicio,ENT_COMPAT,"UTF-8");
