@@ -26,6 +26,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+			  	<!--  -->
 			  	<?php 
 					require_once("php/conexion.php"); 
 			  		$dia_actual = date("Y-m-d");
@@ -34,6 +35,7 @@
 					$date->add(new DateInterval('P90D'));
 					$fin_default =  $date->format('Y-m-d');
 				  	$fecha_fin = $_POST["fecha_fin"] ?? $fin_default;  
+
 
 				  	$fecha_inicio = htmlentities($fecha_inicio,ENT_COMPAT,"UTF-8");
 				  	$fecha_fin = htmlentities($fecha_fin,ENT_COMPAT,"UTF-8");
