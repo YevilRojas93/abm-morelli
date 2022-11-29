@@ -1,5 +1,5 @@
 <section id="section-listado" class="container-fluid px-5">
-		<?php if ($_SESSION["tipo"] == "administrador"): ?>
+		<?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador"): ?>
 			<h1 class="bg-success text-center px-0 mb-0">Listado de Agencia</h1>
 		<?php else: ?>
 			<h1 class="bg-success text-center px-0 mb-0">Mis agencias</h1>
@@ -13,7 +13,8 @@
 		      <th scope="col">Agenciero</th>
 		      <th scope="col">localidad</th>
 		      <th scope="col">direccion</th>
-		      <?php if (isset($_SESSION["tipo"] == "administrador")): ?>
+		      <!--  -->
+		      <?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador"): ?>
 		      	<th scope="col">Modificar</th>
 		  	  <?php endif; ?>	
 		    </tr>
@@ -43,12 +44,12 @@
 				      <td><?= ($value["nombre_completo"] ?? "NINGUNO"); ?></td>
 				      <td><?= $value["localidad"]; ?></td>
 				      <td><?= $value["direccion"]; ?></td>
-				      <?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador"){ ?>
+				      <?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador"): ?>
 					      <td>
 					      	<a class="btn btn-warning" href="editaragencia/<?= $value["idAgencia"] ?>">Editar</a>
 					      	<a class="btn btn-danger" href="borraragencia/<?= $value["idAgencia"] ?>">Borrar</a>
 					      </td>
-				  	  <?php } ?>
+				  	  <?php endif; ?>
 				    </tr>
 			<?php endforeach; ?>
 		  </tbody>
