@@ -43,12 +43,12 @@
 				      <td><?= ($value["nombre_completo"] ?? "NINGUNO"); ?></td>
 				      <td><?= $value["localidad"]; ?></td>
 				      <td><?= $value["direccion"]; ?></td>
-				      <?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador")): ?>
+				      <?php if (isset($_SESSION["tipo"]) AND $_SESSION["tipo"] == "administrador"){ ?>
 					      <td>
-					      	<a class="btn btn-warning" href="editaragencia/<?= $value["idAgencia"]; ?>">Editar</a>
-					      	<a class="btn btn-danger" href="borraragencia/<?= $value["idAgencia"]; ?>">Borrar</a>
+					      	<a class="btn btn-warning" href="editaragencia/<?= $value["idAgencia"] ?>">Editar</a>
+					      	<a class="btn btn-danger" href="borraragencia/<?= $value["idAgencia"] ?>">Borrar</a>
 					      </td>
-				  	  <?php endif; ?>
+				  	  <?php } ?>
 				    </tr>
 			<?php endforeach; ?>
 		  </tbody>
