@@ -22,7 +22,7 @@
 		<table class="table border border-4 ">
 		  <thead>
 		    <tr>
-		      <th scope="col">Efectivo recaudado</th>
+		      <th scope="col">Monto recaudado</th>
 		      <th scope="col">Cobros realizados</th>
 		      <th scope="col">Por transferencia</th>
 		      <th scope="col">Por cheque</th>
