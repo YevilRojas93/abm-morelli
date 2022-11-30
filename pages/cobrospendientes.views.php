@@ -1,5 +1,4 @@
-	<?php error_reporting(E_ALL);
-ini_set("display_errors", 1); ?>
+
 	<section id="section-listado" class="container">
 		<h1 class="bg-success text-center px-0 mb-0">COBROS PENDIENTES</h1>
 			<form method="post" class="row py-2 px-3 text-center">
